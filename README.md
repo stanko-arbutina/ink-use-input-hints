@@ -42,7 +42,7 @@ const SubComponent = () => {
 }
 ```
 
-Bottom of App should show the bar showing the keyboard hints:
+Bottom of App should show the bar with the keyboard hints:
 
 ![Screenshot](./media/screenshot.png)
 
@@ -96,11 +96,11 @@ inputHintsContext.hints // array containing ['my','custom','hints']
 
 #### useInputWithHints
 
-The hook for handling user input and adding movement hints. Similar to [`useInput`](https://github.com/vadimdemedes/ink#useinputinputhandler-options).
+Hook for handling user input and adding movement hints. Similar to [`useInput`](https://github.com/vadimdemedes/ink#useinputinputhandler-options).
 
 `const hints = useInputWithHints(definerFunction)`;
 
-To define how the user input is handled, you pass in `definerFunction`, which will be passed two objects - 
+To define how the user input is handled, you pass in `definerFunction`, which will be provided with two objects - 
 `handler` and `options`, i.e. `definerFunction(handlersBuilder, options)`;
 
 `handlersBuilder` has a single method `add`, which accepts three arguments:
@@ -109,13 +109,13 @@ To define how the user input is handled, you pass in `definerFunction`, which wi
 handlersBuilder.add(keyList, handler, additionalOptions)
 `
 
-  - `keyList` - array of keys, for which the `handler` should be triggered. Each element is either a single character, or a string representing a "special" key ('return', 'ctrl', 'leftArrow'.. ) The list matches the possible key names of [the second argument to the original useInput](https://github.com/vadimdemedes/ink#key). All of the values are accessible via the [KEYS](#KEYS) object. 
-  - `handler` - this is called when user presses one of the keys in `keyList`, like the [inputHandler](https://github.com/vadimdemedes/ink#useinputinputhandler-options) for useInput.
+  - `keyList` - array of inputs for which the `handler` should be triggered. Each element is either a single character, or a string representing a "special" key ('return', 'ctrl', 'leftArrow'.. ) The list matches the possible key names of [the second argument to the original useInput](https://github.com/vadimdemedes/ink#key). All of the values are accessible via the [KEYS](#KEYS) object. 
+  - `handler` - this is called when user presses one of the keys in `keyList`, like the [inputHandler](https://github.com/vadimdemedes/ink#useinputinputhandler-options) for `useInput`.
   - `additionalOptions` - object containing a single key, `description` - used for generating hints. If it's not provided, a hint for this `keyList` won't be generated 
   
 The `options` argument to `definerFunction` has a single key, [`KEYS`](#KEYS), which is an object listing all the recognizable special keys. 
 
-Finally, `useInputWithHints` returns an array listing all of the generated hints.
+Finally, `useInputWithHints` returns an array listing generated hints.
 
 ```javascript
 const hints = useInputWithHints((handler, { KEYS }) => handler
@@ -124,8 +124,8 @@ const hints = useInputWithHints((handler, { KEYS }) => handler
               submitInfo();
           }, {description: 'Submits the form'})
 );
-// hints === ['C, <RETURN> -- Submits the ']
-// when user presses <RETURN> or C, the method submitForm is called
+// hints === ['C, <RETURN> -- Submits the form']
+// when user presses <RETURN> or C, the method submitInfo is called
 ```
 #### KEYS
 
@@ -167,9 +167,9 @@ Can be passed an object (`{wrapperProps: {..}, itemWrapperProps: {..}, textProps
 Default component for drawing default bar with hints. Accepts the following attributes:
 
   - `hints` - array of hints. If not provided, it will use [InputHintsContextProvider](#InputHintsContextProvider)
-  - `wrapperProps` - object containing attributes for styling the Ink [Box](https://github.com/vadimdemedes/ink#text) containing the hint bar
-  - `itemWrapperProps` - object containing attributes for styling the [Box](https://github.com/vadimdemedes/ink#text) wrapping the individual hint
-  - `textProps` - object containing attributes for styling the text display of the individual hint. Ink's [Text](https://github.com/vadimdemedes/ink#text) component is used for this, so attributes are the same.
+  - `wrapperProps` - object containing attributes for styling the Ink [Box](https://github.com/vadimdemedes/ink#box) containing the hint bar
+  - `itemWrapperProps` - object containing attributes for styling the [Box](https://github.com/vadimdemedes/ink#box) wrapping the individual hint
+  - `textProps` - object containing attributes for styling the text display of an individual hint. Ink's [Text](https://github.com/vadimdemedes/ink#text) component is used for this, so attributes are the same.
 
 ## Development
 
