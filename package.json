@@ -1,6 +1,6 @@
 {
   "name": "ink-use-input-hints",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Wrapper around ink useInput provides builder API and facilitates hint bar generation",
   "repository": "https://github.com/stanko-arbutina/ink-use-input-hints",
   "homepage": "https://github.com/stanko-arbutina/ink-use-input-hints",
@@ -24,7 +24,9 @@
     "wrapper",
     "key",
     "keyboard",
-    "help"
+    "facade",
+    "input",
+    "status"
   ],
   "author": "Stanko Arbutina",
   "license": "MIT",
