@@ -4,7 +4,7 @@ A facade for [ink](https://github.com/vadimdemedes/ink) [`useInput`](https://git
 
 ## Installation 
 
-    npm install use-input-with-hints
+    npm install ink-use-input-hints
 
 ## Quick start example
 
