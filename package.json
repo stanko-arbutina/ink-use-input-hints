@@ -1,0 +1,45 @@
+{
+  "name": "ink-use-input-hints",
+  "version": "0.0.1",
+  "description": "Wrapper around ink useInput provides builder API and facilitates hint bar generation",
+  "scripts": {
+    "build": "./node_modules/.bin/babel src --out-dir lib",
+    "prepare": "npm run build"
+  },
+  "main": "lib/index.js",
+  "files": [
+    "lib/"
+  ],
+  "keywords": [
+    "ink",
+    "react",
+    "useInput",
+    "hint",
+    "bar",
+    "help",
+    "movement",
+    "builder",
+    "wrapper",
+    "key",
+    "keyboard",
+    "help"
+  ],
+  "author": "Stanko Arbutina",
+  "license": "MIT",
+  "dependencies": {
+    "import-jsx": "^4.0.1",
+    "lodash": "^4.17.21"
+  },
+  "peerDependencies": {
+    "ink": "^3.2.0",
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "ink": "^3.2.0",
+    "react": "^17.0.2"
+  }
+}
