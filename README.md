@@ -46,6 +46,19 @@ Bottom of App should show the bar with the keyboard hints:
 
 ![Screenshot](./media/screenshot.png)
 
+## Contents
+* [Background](#Background)
+* [API](#API)
+  * [config](#config)
+  * [InputHintsContext](#InputHintsContext)
+  * [InputHintsContextProvider](#InputHintsContextProvider)
+  * [useInputWithHints](#useInputWithHints)
+  * [KEYS](#KEYS)
+  * [InputHints](#InputHints)
+  * [HintBar](#HintBar)
+* [Development](#Development)
+* [LICENSE](#LICENSE)
+
 ## Background
 I enjoy Ink very much and find myself reusing the hint bar again and again, so I've decided to extract it out.
 I found the builder API more intuitive for reuse (for example, having the same keys do similar things across different screens). 
