@@ -116,17 +116,17 @@ Hook for handling user input and adding movement hints. Similar to [`useInput`](
 To define how the user input is handled, you pass in `definerFunction`, which will be provided with two objects - 
 `handler` and `options`, i.e. `definerFunction(handlersBuilder, options)`;
 
-`handlersBuilder` has a single method `add`, which accepts three arguments:
+`handlersBuilder` has the following methods:
 
-`
-handlersBuilder.add(keyList, handler, additionalOptions)
-`
+  - `add` which accepts three arguments:
+    `handlersBuilder.add(keyList, handler, additionalOptions)`
+    - `keyList` - array of inputs for which the `handler` should be triggered. Each element is either a single character, or a string representing a "special" key ('return', 'ctrl', 'leftArrow'.. ) The list matches the possible key names of [the second argument to the original useInput](https://github.com/vadimdemedes/ink#key). All of the values are accessible via the [KEYS](#KEYS) object. 
+    - `handler` - this is called when user presses one of the keys in `keyList`, like the [inputHandler](https://github.com/vadimdemedes/ink#useinputinputhandler-options) for `useInput`.
+    - `additionalOptions` - object containing a single key, `description` - used for generating hints. If it's not provided, a hint for this `keyList` won't be generated 
+  - `describe` which accepts a single string argument - `handlersBuilder.describe(text)`
+    - this will just add `text` to the list of hints visible in the hint bar 
 
-  - `keyList` - array of inputs for which the `handler` should be triggered. Each element is either a single character, or a string representing a "special" key ('return', 'ctrl', 'leftArrow'.. ) The list matches the possible key names of [the second argument to the original useInput](https://github.com/vadimdemedes/ink#key). All of the values are accessible via the [KEYS](#KEYS) object. 
-  - `handler` - this is called when user presses one of the keys in `keyList`, like the [inputHandler](https://github.com/vadimdemedes/ink#useinputinputhandler-options) for `useInput`.
-  - `additionalOptions` - object containing a single key, `description` - used for generating hints. If it's not provided, a hint for this `keyList` won't be generated 
-  
-The `options` argument to `definerFunction` has a single key, [`KEYS`](#KEYS), which is an object listing all the recognizable special keys. 
+  The `options` argument to `definerFunction` has a single key, [`KEYS`](#KEYS), which is an object listing all the recognizable special keys. 
 
 Finally, `useInputWithHints` returns an array listing generated hints.
 
